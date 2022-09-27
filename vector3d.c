@@ -53,6 +53,11 @@ vector3d add_vectors3d(vector3d vector1, vector3d vector2) {
     return sum_vector;
 }
 
+vector3d scale3d(vector3d vector, float scale_factor) {
+    vector3d new_vector = {vector.x * scale_factor, vector.y * scale_factor, vector.z * scale_factor};
+    return new_vector;
+}
+
 // Vector 2D operations
 float magnitude2d(vector2d vector) {
     return sqrtf(
@@ -76,6 +81,11 @@ float distance2d(vector2d vector1, vector2d vector2) {
 vector2d add_vectors2d(vector2d vector1, vector2d vector2) {
     vector2d sum_vector = {(vector1.x + vector2.x), (vector1.y, vector2.y)};
     return sum_vector;
+}
+
+vector2d scale2d(vector2d vector, float scale_factor) {
+    vector2d new_vector = {vector.x * scale_factor, vector.y * scale_factor};
+    return new_vector;
 }
 
 // Matrix operations
