@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
 #include <stdbool.h>
 #include <SDL.h>
@@ -37,7 +36,6 @@ int main(int argc, char **argv) {
         SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC // Accelerated and in sync with monitor refresh rate
     );
 
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
     bool running = true;
     SDL_Event event;
 
@@ -51,9 +49,11 @@ int main(int argc, char **argv) {
         }
 
         // Clear screen
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Black bg
         SDL_RenderClear(renderer);
 
         // Draw
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
 
         // Show what was drawn
         SDL_RenderPresent(renderer);
