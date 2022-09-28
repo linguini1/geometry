@@ -31,7 +31,7 @@ float distance3d(const vector3d *vector1, const vector3d *vector2);
 
 vector3d add_vectors3d(const vector3d *vector1, const vector3d *vector2);
 
-vector3d scale3d(const vector3d *vector, float scale_factor);
+void scale3d(vector3d *vector, float scale_factor);
 
 // Vector 2D operations
 float magnitude2d(const vector2d *vector);
@@ -42,7 +42,7 @@ float distance2d(const vector2d *vector1, const vector2d *vector2);
 
 vector2d add_vectors2d(const vector2d *vector1, const vector2d *vector2);
 
-vector2d scale2d(const vector2d *vector, float scale_factor);
+void scale2d(vector2d *vector, float scale_factor);
 
 // Projection
 vector2d project3d(const vector3d *vector, float fNear, float fFar, float fFov, float fAspectRatio);

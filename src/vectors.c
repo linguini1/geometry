@@ -35,8 +35,10 @@ vector3d add_vectors3d(const vector3d *vector1, const vector3d *vector2) {
     return (vector3d) {(vector1->x + vector2->x), (vector1->y, vector2->y), (vector1->z + vector2->z)};
 }
 
-vector3d scale3d(const vector3d *vector, float scale_factor) {
-    return (vector3d) {vector->x * scale_factor, vector->y * scale_factor, vector->z * scale_factor};;
+void scale3d(vector3d *vector, float scale_factor) {
+    vector->x *= scale_factor;
+    vector->y *= scale_factor;
+    vector->z *= scale_factor;
 }
 
 // Vector 2D operations
@@ -59,8 +61,9 @@ vector2d add_vectors2d(const vector2d *vector1, const vector2d *vector2) {
     return (vector2d) {(vector1->x + vector2->x), (vector1->y + vector2->y)};
 }
 
-vector2d scale2d(const vector2d *vector, float scale_factor) {
-    return (vector2d) {vector->x * scale_factor, vector->y * scale_factor};
+void scale2d(vector2d *vector, float scale_factor) {
+    vector->x *= scale_factor;
+    vector->y *= scale_factor;
 }
 
 // Projection
