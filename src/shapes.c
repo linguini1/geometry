@@ -1,6 +1,22 @@
 // Utilities for creating shapes
 #include <shapes.h>
 
+// Utilities
+void scale_triangle3d(triangle3d *tri, float scale_factor) {
+    scale3d(&(tri->points[0]), scale_factor);
+    scale3d(&(tri->points[1]), scale_factor);
+    scale3d(&(tri->points[2]), scale_factor);
+}
+
+triangle2d project_triangle3d(triangle3d *tri, sim_params *simParams) {
+    vector2d point1 = project3d(&(tri->points[0]), simParams);
+    vector2d point2 = project3d(&(tri->points[1]), simParams);
+    vector2d point3 = project3d(&(tri->points[2]), simParams);
+
+    return (triangle2d) {point1, point2, point3};
+}
+
+// Scale shapes
 shape create_cube(float side_length) {
 
     // Vertices
@@ -14,7 +30,7 @@ shape create_cube(float side_length) {
     vector3d corner8 = {side_length, side_length, -side_length};
 
     // Components
-    triangle components[] = {
+    triangle3d components[] = {
             {corner1, corner2, corner3},
             {corner1, corner3, corner4},
             {corner1, corner2, corner7},

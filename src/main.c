@@ -67,6 +67,14 @@ int main(int argc, char **argv) {
         // Draw
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
 
+        // Scale
+        triangle3d tri = create_cube(1).components[0];
+
+        scale_triangle3d(&tri, 100.0f); // Scale
+        triangle2d proj_tri = project_triangle3d(&tri, &simulation_parameters); // Project
+
+        draw_triangle2d(renderer, &proj_tri, &simulation_parameters); // Draw
+
         // Show what was drawn
         SDL_RenderPresent(renderer);
     }

@@ -1,16 +1,12 @@
 #include <draw_helper.h>
 #include <stdio.h>
 
-void draw_triangles(SDL_Renderer *renderer, const triangle *tri, sim_params *simParams) {
+void draw_triangle2d(SDL_Renderer *renderer, const triangle2d *tri, sim_params *simParams) {
 
-    // Unpack points
-    vector3d point1 = tri->points[0];
-    vector3d point2 = tri->points[1];
-    vector3d point3 = tri->points[2];
-
-    printf("%f, %f\n", point1.x, point1.y);
-    printf("%f, %f\n", point2.x, point2.y);
-    printf("%f, %f\n", point3.x, point3.y);
+    // Unpack
+    vector2d point1 = tri->points[0];
+    vector2d point2 = tri->points[1];
+    vector2d point3 = tri->points[2];
 
     // Draw
     SDL_RenderDrawLineF(renderer, point1.x, point1.y, point2.x, point2.y);
