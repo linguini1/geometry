@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdbool.h>
 #include <SDL.h>
+#include <shapes.h>
 
 static const int width = 800;
 static const int height = 600;
@@ -54,6 +55,7 @@ int main(int argc, char **argv) {
 
         // Draw
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
+        shape cube = create_cube(4);
 
         // Show what was drawn
         SDL_RenderPresent(renderer);

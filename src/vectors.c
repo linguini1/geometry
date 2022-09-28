@@ -1,21 +1,9 @@
 // Contains utilities for manipulating vectors
 #include <math.h>
-
-// Types
-typedef struct vector3d {
-    float x, y, z;
-} vector3d;
-
-typedef struct vector2d {
-    float x, y;
-} vector2d;
-
-typedef struct matrix4x4 {
-    float matrix[4][4];
-} matrix4x4;
+#include <vectors.h>
 
 // Constants
-const float PI = 3.14159265358f;
+const float PI = 3.1415926358;
 
 // Conversion utilities
 float degree_to_rad(float degrees) {

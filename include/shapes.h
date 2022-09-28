@@ -1,5 +1,6 @@
 // Utilities for creating shapes
-#include "vectors.c"
+#include <malloc.h>
+#include <vectors.h>
 
 // Types
 typedef struct triangle {
@@ -8,15 +9,15 @@ typedef struct triangle {
 
 typedef struct rawShape {
     int vertex_count;
-    vector3d vertexes[];
+    triangle *vertexes;
 } rawShape;
 
 typedef struct shape {
     int component_count;
-    triangle components[];
+    triangle *components;
 } shape;
 
 // Build a shape out of components
-shape construct_shape(rawShape raw_shape) {
-    return 0;
-}
+shape *create_shape(shape *s, int shape_component_count, triangle shape_components[]);
+
+shape create_cube(float side_length);
