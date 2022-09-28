@@ -44,7 +44,5 @@ vector2d add_vectors2d(vector2d vector1, vector2d vector2);
 
 vector2d scale2d(vector2d vector, float scale_factor);
 
-// Matrix operations
-matrix4x4 create_projection_matrix(float fNear, float fFar, float fFov, float fAspectRatio);
-
-vector2d project3d(vector3d vector, matrix4x4 projection_matrix);
+// Projection
+vector2d project3d(vector3d vector, float fNear, float fFar, float fFov, float fAspectRatio);

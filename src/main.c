@@ -4,9 +4,16 @@
 #include <SDL.h>
 #include <shapes.h>
 
+// Window parameters
 static const int width = 800;
 static const int height = 600;
 static char window_name[] = "Geometry Visualizer";
+
+// Simulation parameters
+float fNear = 1;
+float fFar = 10;
+float fFov = 90.0f;
+float fAspectRatio = (float)width / (float)height;
 
 int main(int argc, char **argv) {
 
@@ -14,6 +21,9 @@ int main(int argc, char **argv) {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+
+    // Simulation params
+    float fFovRad = degree_to_rad(fFov);
 
     // Start SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -55,15 +65,17 @@ int main(int argc, char **argv) {
 
         // Draw
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
-        shape cube = create_cube(100);
+        shape cube = create_cube(50);
 
-        // Draw cube
         for (int i = 0; i < cube.component_count; i++) {
-            vector3d *points = cube.components[i].points;
+            triangle component = cube.components[i];
+            vector3d point1 = component.points[0];
+            vector3d point2 = component.points[1];
+            vector3d point3 = component.points[2];
 
-            SDL_RenderDrawLineF(renderer, points[0].x, points[0].y, points[1].x, points[1].y);
-            SDL_RenderDrawLineF(renderer, points[1].x, points[1].y, points[2].x, points[2].y);
-            SDL_RenderDrawLineF(renderer, points[2].x, points[2].y, points[0].x, points[0].y);
+            SDL_RenderDrawLineF(renderer, point1.x, point1.y, point2.x, point2.y);
+            SDL_RenderDrawLineF(renderer, point2.x, point2.y, point3.x, point3.y);
+            SDL_RenderDrawLineF(renderer, point3.x, point3.y, point1.x, point1.y);
         }
 
         // Show what was drawn
@@ -77,4 +89,3 @@ int main(int argc, char **argv) {
 
     return 0;
 }
-

@@ -76,32 +76,27 @@ vector2d scale2d(vector2d vector, float scale_factor) {
     return new_vector;
 }
 
-// Matrix operations
-matrix4x4 create_projection_matrix(float fNear, float fFar, float fFov, float fAspectRatio) {
+// Projection
+vector2d project3d(vector3d vector, float fNear, float fFar, float fFov, float fAspectRatio) {
 
-    // fFov must be the field of view angle in RADIANS
+    vector3d projected_3d;
 
-    matrix4x4 projection_matrix = {0}; // Init with all 0s
+    float f = 1/tanf(fFov / 2);
+    float q = fFar / (fFar - fNear);
 
-    projection_matrix.matrix[0][0] = fAspectRatio * fFov;
-    projection_matrix.matrix[1][1] = fFov;
-    projection_matrix.matrix[2][2] = fFar / (fFar - fNear);
-    projection_matrix.matrix[3][2] = (-fFar * fNear) / (fFar - fNear);
-    projection_matrix.matrix[2][3] = 1.0f;
-    projection_matrix.matrix[3][3] = 0.0f;
+    // Projection
+    projected_3d.x = vector.x * fAspectRatio * f;
+    projected_3d.y = vector.y * f;
+    projected_3d.z = vector.z * q - (q * fNear);
 
-    return projection_matrix;
-}
+    // Avoid 0 division
+    if (vector.z != 0.0f) {
+        projected_3d.x /= vector.z;
+        projected_3d.y /= vector.z;
+        projected_3d.z /= vector.z;
+    }
 
-vector2d project3d(vector3d vector, matrix4x4 projection_matrix) {
+    vector2d projected_2d = {projected_3d.x + 1.0f, projected_3d.y + 1.0f};
 
-    vector3d projected_3d = {0};
-
-    projected_3d.x = vector.x * projection_matrix.matrix[0][0];
-    projected_3d.y = vector.y * projection_matrix.matrix[1][1];
-    projected_3d.z = vector.z * projection_matrix.matrix[2][2] +
-                         vector.z * projection_matrix.matrix[3][2];
-
-    vector2d projected_2d = {(projected_3d.x / vector.z), (projected_3d.y / vector.z)};
     return projected_2d;
 }
