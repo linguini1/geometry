@@ -4,3 +4,7 @@
 5	63	6861044365271561	CMakeFiles/geometry.dir/src/shapes.c.obj	6cfd7c37cd932640
 1	221	6861044366866579	CMakeFiles/geometry.dir/src/main.c.obj	2586af38a2941222
 222	298	6861044367611552	geometry.exe	78cc17cdb5bc39ca
+7	54	6861056071479065	CMakeFiles/geometry.dir/src/shapes.c.obj	6cfd7c37cd932640
+5	58	6861056071514038	CMakeFiles/geometry.dir/src/vectors.c.obj	ad5690749649bd14
+2	220	6861056073134348	CMakeFiles/geometry.dir/src/main.c.obj	2586af38a2941222
+220	275	6861056073664348	geometry.exe	78cc17cdb5bc39ca
