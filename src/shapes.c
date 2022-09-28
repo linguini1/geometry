@@ -39,6 +39,5 @@ shape create_cube(float side_length) {
             {corner2, corner8, corner3}
     };
 
-    shape cube = {12, components};
-    return cube;
+    return (shape) {12, components};
 }
