@@ -9,10 +9,12 @@ static const int height = 600;
 static char window_name[] = "Geometry Visualizer";
 
 // Simulation parameters
-float fNear = 1;
-float fFar = 10;
-float fFov = 90.0f;
-float fAspectRatio = (float)width / (float)height;
+sim_params simulation_parameters = {
+        1.0f,
+        10.0f,
+        90.0f,
+        (float)width / (float)height
+};
 
 int main(int argc, char **argv) {
 
@@ -22,7 +24,7 @@ int main(int argc, char **argv) {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 
     // Simulation params
-    float fFovRad = degree_to_rad(fFov);
+    simulation_parameters.fov = degree_to_rad(simulation_parameters.fov);
 
     // Start SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -64,12 +66,6 @@ int main(int argc, char **argv) {
 
         // Draw
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
-        shape cube = create_cube(50);
-
-        for (int i = 0; i < cube.component_count; i++) {
-            triangle component = cube.components[i];
-            draw_triangles(renderer, &component);
-        }
 
         // Show what was drawn
         SDL_RenderPresent(renderer);

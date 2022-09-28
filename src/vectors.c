@@ -67,16 +67,16 @@ void scale2d(vector2d *vector, float scale_factor) {
 }
 
 // Projection
-vector2d project3d(const vector3d *vector, float fNear, float fFar, float fFov, float fAspectRatio) {
+vector2d project3d(const vector3d *vector, sim_params *simParams) {
 
-    float f = 1/tanf(fFov / 2);
-    float q = fFar / (fFar - fNear);
+    float f = 1/tanf(simParams->fov / 2);
+    float q = simParams->far / (simParams->far - simParams->near);
 
     // Projection
     vector3d projected_3d;
-    projected_3d.x = vector->x * fAspectRatio * f;
+    projected_3d.x = vector->x * simParams->aspect_ratio * f;
     projected_3d.y = vector->y * f;
-    projected_3d.z = vector->z * q - (q * fNear);
+    projected_3d.z = vector->z * q - (q * simParams->near);
 
     // Avoid 0 division
     if (vector->z != 0.0f) {

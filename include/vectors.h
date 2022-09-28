@@ -10,9 +10,12 @@ typedef struct vector2d {
     float x, y;
 } vector2d;
 
-typedef struct matrix4x4 {
-    float matrix[4][4];
-} matrix4x4;
+typedef struct sim_params {
+    float near;
+    float far;
+    float fov;
+    float aspect_ratio;
+} sim_params;
 
 // Constants
 extern const float PI;
@@ -45,4 +48,4 @@ vector2d add_vectors2d(const vector2d *vector1, const vector2d *vector2);
 void scale2d(vector2d *vector, float scale_factor);
 
 // Projection
-vector2d project3d(const vector3d *vector, float fNear, float fFar, float fFov, float fAspectRatio);
+vector2d project3d(const vector3d *vector, sim_params *simParams);
