@@ -57,6 +57,15 @@ int main(int argc, char **argv) {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
         shape cube = create_cube(4);
 
+        // Draw cube
+        for (int i = 0; i < cube.component_count; i++) {
+            vector3d *points = cube.components[i].points;
+
+            SDL_RenderDrawLineF(renderer, points[0].x, points[0].y, points[1].x, points[1].y);
+            SDL_RenderDrawLineF(renderer, points[1].x, points[1].y, points[2].x, points[2].y);
+            SDL_RenderDrawLineF(renderer, points[2].x, points[2].y, points[0].x, points[0].y);
+        }
+
         // Show what was drawn
         SDL_RenderPresent(renderer);
     }
