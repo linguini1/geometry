@@ -16,17 +16,12 @@ float rad_to_degrees(float radians) {
 
 // Vector 3d operations
 float magnitude3d(vector3d vector) {
-    return sqrtf(
-        vector.x * vector.x +
-        vector.y * vector.y +
-        vector.z * vector.z
-    );
+    return sqrtf(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z);
 }
 
 vector3d unit_vector3d(vector3d vector) {
     float inv_mag = 1 / magnitude3d(vector);
-    vector3d new_vector = {(inv_mag * vector.x), (inv_mag * vector.y), (inv_mag * vector.z)};
-    return new_vector;
+    return (vector3d) {(inv_mag * vector.x), (inv_mag * vector.y), (inv_mag * vector.z)};
 }
 
 float distance3d(vector3d vector1, vector3d vector2) {
@@ -37,27 +32,21 @@ float distance3d(vector3d vector1, vector3d vector2) {
 }
 
 vector3d add_vectors3d(vector3d vector1, vector3d vector2) {
-    vector3d sum_vector = {(vector1.x + vector2.x), (vector1.y, vector2.y), (vector1.z + vector2.z)};
-    return sum_vector;
+    return (vector3d) {(vector1.x + vector2.x), (vector1.y, vector2.y), (vector1.z + vector2.z)};
 }
 
 vector3d scale3d(vector3d vector, float scale_factor) {
-    vector3d new_vector = {vector.x * scale_factor, vector.y * scale_factor, vector.z * scale_factor};
-    return new_vector;
+    return (vector3d) {vector.x * scale_factor, vector.y * scale_factor, vector.z * scale_factor};;
 }
 
 // Vector 2D operations
 float magnitude2d(vector2d vector) {
-    return sqrtf(
-            vector.x * vector.x +
-            vector.y * vector.y
-    );
+    return sqrtf(vector.x * vector.x + vector.y * vector.y);
 }
 
 vector2d unit_vector2d(vector2d vector) {
     float inv_mag = 1 / magnitude2d(vector);
-    vector2d new_vector = {(inv_mag * vector.x), (inv_mag * vector.y)};
-    return new_vector;
+    return (vector2d) {(inv_mag * vector.x), (inv_mag * vector.y)};
 }
 
 float distance2d(vector2d vector1, vector2d vector2) {
@@ -67,13 +56,11 @@ float distance2d(vector2d vector1, vector2d vector2) {
 }
 
 vector2d add_vectors2d(vector2d vector1, vector2d vector2) {
-    vector2d sum_vector = {(vector1.x + vector2.x), (vector1.y, vector2.y)};
-    return sum_vector;
+    return (vector2d) {(vector1.x + vector2.x), (vector1.y, vector2.y)};
 }
 
 vector2d scale2d(vector2d vector, float scale_factor) {
-    vector2d new_vector = {vector.x * scale_factor, vector.y * scale_factor};
-    return new_vector;
+    return (vector2d) {vector.x * scale_factor, vector.y * scale_factor};
 }
 
 // Projection
@@ -96,7 +83,5 @@ vector2d project3d(vector3d vector, float fNear, float fFar, float fFov, float f
         projected_3d.z /= vector.z;
     }
 
-    vector2d projected_2d = {projected_3d.x + 1.0f, projected_3d.y + 1.0f};
-
-    return projected_2d;
+    return (vector2d) {projected_3d.x + 1.0f, projected_3d.y + 1.0f};
 }
