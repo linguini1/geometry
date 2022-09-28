@@ -3,7 +3,7 @@
 #include <vectors.h>
 
 // Constants
-const float PI = 3.1415926358;
+const float PI = 3.1415926358f;
 
 // Conversion utilities
 float degree_to_rad(float degrees) {
