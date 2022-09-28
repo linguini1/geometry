@@ -1,10 +1,17 @@
 # ninja log v5
-248	302	6860068603939854	geometry.exe	137e6ce5f4c5e01a
-3	59	6861044365231562	CMakeFiles/geometry.dir/src/vectors.c.obj	ad5690749649bd14
-5	63	6861044365271561	CMakeFiles/geometry.dir/src/shapes.c.obj	6cfd7c37cd932640
-1	221	6861044366866579	CMakeFiles/geometry.dir/src/main.c.obj	2586af38a2941222
-222	298	6861044367611552	geometry.exe	78cc17cdb5bc39ca
-7	54	6861056071479065	CMakeFiles/geometry.dir/src/shapes.c.obj	6cfd7c37cd932640
-5	58	6861056071514038	CMakeFiles/geometry.dir/src/vectors.c.obj	ad5690749649bd14
-2	220	6861056073134348	CMakeFiles/geometry.dir/src/main.c.obj	2586af38a2941222
 220	275	6861056073664348	geometry.exe	78cc17cdb5bc39ca
+5	58	6861056071514038	CMakeFiles/geometry.dir/src/vectors.c.obj	ad5690749649bd14
+7	54	6861056071479065	CMakeFiles/geometry.dir/src/shapes.c.obj	6cfd7c37cd932640
+2	220	6861056073134348	CMakeFiles/geometry.dir/src/main.c.obj	2586af38a2941222
+5	52	6861060550905920	CMakeFiles/geometry.dir/src/shapes.c.obj	6cfd7c37cd932640
+7	213	6861060552525929	CMakeFiles/geometry.dir/src/draw_helper.c.obj	1249c4050b5abc23
+2	217	6861060552570926	CMakeFiles/geometry.dir/src/main.c.obj	2586af38a2941222
+217	276	6861060553135913	geometry.exe	81fd999b9904f18b
+3	315	6861087085630404	CMakeFiles/geometry.dir/src/draw_helper.c.obj	1249c4050b5abc23
+315	395	6861087086410405	geometry.exe	81fd999b9904f18b
+2	222	6861087178497693	CMakeFiles/geometry.dir/src/draw_helper.c.obj	1249c4050b5abc23
+222	274	6861087178997689	geometry.exe	81fd999b9904f18b
+1	218	6861087322637808	CMakeFiles/geometry.dir/src/draw_helper.c.obj	1249c4050b5abc23
+218	270	6861087323142810	geometry.exe	81fd999b9904f18b
+1	226	6861087452097798	CMakeFiles/geometry.dir/src/draw_helper.c.obj	1249c4050b5abc23
+226	279	6861087452612783	geometry.exe	81fd999b9904f18b

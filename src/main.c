@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <math.h>
 #include <stdbool.h>
 #include <SDL.h>
-#include <shapes.h>
+#include <draw_helper.h>
 
 // Window parameters
 static const int width = 800;
@@ -69,13 +68,7 @@ int main(int argc, char **argv) {
 
         for (int i = 0; i < cube.component_count; i++) {
             triangle component = cube.components[i];
-            vector3d point1 = component.points[0];
-            vector3d point2 = component.points[1];
-            vector3d point3 = component.points[2];
-
-            SDL_RenderDrawLineF(renderer, point1.x, point1.y, point2.x, point2.y);
-            SDL_RenderDrawLineF(renderer, point2.x, point2.y, point3.x, point3.y);
-            SDL_RenderDrawLineF(renderer, point3.x, point3.y, point1.x, point1.y);
+            draw_triangles(renderer, &component);
         }
 
         // Show what was drawn

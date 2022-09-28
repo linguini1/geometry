@@ -10,6 +10,6 @@ include_directories(${SDL2_INCLUDE_DIR})
 include_directories(.\\include)
 link_directories(${SDL2_LIB_DIR})
 
-add_executable(geometry src/main.c src/vectors.c src/shapes.c)
+add_executable(geometry src/main.c src/vectors.c src/shapes.c src/draw_helper.c)
 
 target_link_libraries(${PROJECT_NAME} SDL2main SDL2)

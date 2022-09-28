@@ -1,15 +1,5 @@
 // Utilities for creating shapes
-#include <malloc.h>
 #include <shapes.h>
-
-// Build a shape out of components
-shape *create_shape(shape *s, int shape_component_count, triangle shape_components[]) {
-
-    // Allocate memory for variable length components array
-    s = malloc(sizeof(*s) + sizeof(triangle) * shape_component_count);
-    s -> component_count = shape_component_count;
-    s -> components = shape_components;
-}
 
 shape create_cube(float side_length) {
 

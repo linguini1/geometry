@@ -1,5 +1,4 @@
 // Utilities for creating shapes
-#include <malloc.h>
 #include <vectors.h>
 
 // Types
