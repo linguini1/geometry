@@ -23,26 +23,26 @@ float degree_to_rad(float degrees);
 float rad_to_degrees(float radians);
 
 // Vector 3d operations
-float magnitude3d(vector3d vector);
+float magnitude3d(const vector3d *vector);
 
-vector3d unit_vector3d(vector3d vector);
+vector3d unit_vector3d(const vector3d *vector);
 
-float distance3d(vector3d vector1, vector3d vector2);
+float distance3d(const vector3d *vector1, const vector3d *vector2);
 
-vector3d add_vectors3d(vector3d vector1, vector3d vector2);
+vector3d add_vectors3d(const vector3d *vector1, const vector3d *vector2);
 
-vector3d scale3d(vector3d vector, float scale_factor);
+vector3d scale3d(const vector3d *vector, float scale_factor);
 
 // Vector 2D operations
-float magnitude2d(vector2d vector);
+float magnitude2d(const vector2d *vector);
 
-vector2d unit_vector2d(vector2d vector);
+vector2d unit_vector2d(const vector2d *vector);
 
-float distance2d(vector2d vector1, vector2d vector2);
+float distance2d(const vector2d *vector1, const vector2d *vector2);
 
-vector2d add_vectors2d(vector2d vector1, vector2d vector2);
+vector2d add_vectors2d(const vector2d *vector1, const vector2d *vector2);
 
-vector2d scale2d(vector2d vector, float scale_factor);
+vector2d scale2d(const vector2d *vector, float scale_factor);
 
 // Projection
-vector2d project3d(vector3d vector, float fNear, float fFar, float fFov, float fAspectRatio);
+vector2d project3d(const vector3d *vector, float fNear, float fFar, float fFov, float fAspectRatio);
