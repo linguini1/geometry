@@ -55,7 +55,7 @@ int main(int argc, char **argv) {
 
         // Draw
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
-        shape cube = create_cube(4);
+        shape cube = create_cube(100);
 
         // Draw cube
         for (int i = 0; i < cube.component_count; i++) {

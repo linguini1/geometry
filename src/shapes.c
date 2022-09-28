@@ -15,13 +15,13 @@ shape create_cube(float side_length) {
 
     // Vertices
     vector3d corner1 = {0.0f, 0.0f, 0.0f};
-    vector3d corner2 = {0.0f, 1.0f, 0.0f};
-    vector3d corner3 = {1.0f, 1.0f, 0.0f};
-    vector3d corner4 = {1.0f, 0.0f, 0.0f};
-    vector3d corner5 = {0.0f, 0.0f, -1.0f};
-    vector3d corner6 = {1.0f, 0.0f, -1.0f};
-    vector3d corner7 = {0.0f, 1.0f, -1.0f};
-    vector3d corner8 = {1.0f, 1.0f, -1.0f};
+    vector3d corner2 = {0.0f, side_length, 0.0f};
+    vector3d corner3 = {side_length, side_length, 0.0f};
+    vector3d corner4 = {side_length, 0.0f, 0.0f};
+    vector3d corner5 = {0.0f, 0.0f, -side_length};
+    vector3d corner6 = {side_length, 0.0f, -side_length};
+    vector3d corner7 = {0.0f, side_length, -side_length};
+    vector3d corner8 = {side_length, side_length, -side_length};
 
     // Components
     triangle components[] = {
