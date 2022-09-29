@@ -4,8 +4,8 @@
 #include <draw_helper.h>
 
 // Window parameters
-static const int width = 800;
-static const int height = 400;
+static const int width = 500;
+static const int height = 500;
 static char window_name[] = "Geometry Visualizer";
 
 // Simulation parameters
@@ -13,7 +13,9 @@ sim_params simulation_parameters = {
         1.0f,
         10.0f,
         90.0f,
-        (float)width / (float)height
+        (float)width / (float)height,
+        {(float)width / 2, (float)height / 2},
+        {(float)width / 2, (float)height / 2, 1.0f}
 };
 
 int main(int argc, char **argv) {
@@ -24,7 +26,7 @@ int main(int argc, char **argv) {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 
     // Simulation params
-    simulation_parameters.fov = degree_to_rad(simulation_parameters.fov);
+    simulation_parameters.fov = degree_to_rad(simulation_parameters.fov);\
 
     // Start SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -51,6 +53,8 @@ int main(int argc, char **argv) {
     bool running = true;
     SDL_Event event;
 
+    // Initialize assets
+
     while (running) {
 
         // Process events
@@ -66,17 +70,6 @@ int main(int argc, char **argv) {
 
         // Draw
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
-
-        // Scale
-        shape cube = create_cube(1);
-        vector3d origin_at_center = {(float)width / 2.0f, (float)height / 2.0f, 0.0f};
-
-        for (int i = 0; i < cube.component_count; i++) {
-            scale_triangle3d(&(cube.components[i]), 50.0f); // Scale
-            translate_triangle3d(&(cube.components[i]), &origin_at_center); // Translate
-            triangle2d proj_tri = project_triangle3d(&(cube.components[i]), &simulation_parameters); // Project
-            draw_triangle2d(renderer, &proj_tri, &simulation_parameters); // Draw
-        }
 
         // Show what was drawn
         SDL_RenderPresent(renderer);

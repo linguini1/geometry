@@ -17,11 +17,4 @@ typedef struct shape {
 } shape;
 
 // Utilities
-void scale_triangle3d(triangle3d *tri, float scale_factor);
 
-triangle2d project_triangle3d(triangle3d *tri, sim_params *simParams);
-
-void translate_triangle3d(triangle3d *tri, vector3d *translation);
-
-// Create shapes
-shape create_cube(float side_length);

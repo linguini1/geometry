@@ -1,6 +1,7 @@
 // Contains utilities for manipulating vectors
 #include <math.h>
 #include <vectors.h>
+#include <stdio.h>
 
 // Constants
 const float PI = 3.1415926358f;
@@ -12,6 +13,15 @@ float degree_to_rad(float degrees) {
 
 float rad_to_degrees(float radians) {
     return radians * (180.0f / PI);
+}
+
+// Print utilities
+void print_vector2d(const vector2d *vector) {
+    printf("(%f, %f)\n", vector->x, vector->y);
+}
+
+void print_vector3d(const vector3d *vector) {
+    printf("(%f, %f, %f)\n", vector->x, vector->y, vector->z);
 }
 
 // Vector 3d operations
@@ -67,23 +77,4 @@ void scale2d(vector2d *vector, float scale_factor) {
 }
 
 // Projection
-vector2d project3d(const vector3d *vector, sim_params *simParams) {
 
-    float f = 1/tanf(simParams->fov / 2);
-    float q = simParams->far / (simParams->far - simParams->near);
-
-    // Projection
-    vector3d projected_3d;
-    projected_3d.x = vector->x * simParams->aspect_ratio * f;
-    projected_3d.y = vector->y * f;
-    projected_3d.z = vector->z * q - (q * simParams->near);
-
-    // Avoid 0 division
-    if (vector->z != 0.0f) {
-        projected_3d.x /= vector->z;
-        projected_3d.y /= vector->z;
-        projected_3d.z /= vector->z;
-    }
-
-    return (vector2d) {projected_3d.x + 1.0f, projected_3d.y + 1.0f};
-}
