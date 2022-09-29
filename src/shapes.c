@@ -1,5 +1,6 @@
 // Utilities for creating shapes
 #include <shapes.h>
+#include <stdio.h>
 
 // Utilities
 void scale_triangle3d(triangle3d *tri, float scale_factor) {
@@ -14,6 +15,14 @@ triangle2d project_triangle3d(triangle3d *tri, sim_params *simParams) {
     vector2d point3 = project3d(&(tri->points[2]), simParams);
 
     return (triangle2d) {point1, point2, point3};
+}
+
+void translate_triangle3d(triangle3d *tri, vector3d *translation) {
+    for (int i = 0; i < 3; i ++) {
+        vector3d translated_vector = add_vectors3d(&(tri->points[i]), translation);
+        printf("(%f, %f, %f)\n", tri->points[i].x, tri->points[i].y, tri->points[i].z);
+        (*tri).points[i] = translated_vector;
+    }
 }
 
 // Scale shapes

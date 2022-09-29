@@ -5,7 +5,7 @@
 
 // Window parameters
 static const int width = 800;
-static const int height = 600;
+static const int height = 400;
 static char window_name[] = "Geometry Visualizer";
 
 // Simulation parameters
@@ -68,12 +68,15 @@ int main(int argc, char **argv) {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
 
         // Scale
-        triangle3d tri = create_cube(1).components[0];
+        shape cube = create_cube(1);
+        vector3d origin_at_center = {(float)width / 2.0f, (float)height / 2.0f, 0.0f};
 
-        scale_triangle3d(&tri, 100.0f); // Scale
-        triangle2d proj_tri = project_triangle3d(&tri, &simulation_parameters); // Project
-
-        draw_triangle2d(renderer, &proj_tri, &simulation_parameters); // Draw
+        for (int i = 0; i < cube.component_count; i++) {
+            scale_triangle3d(&(cube.components[i]), 50.0f); // Scale
+            translate_triangle3d(&(cube.components[i]), &origin_at_center); // Translate
+            triangle2d proj_tri = project_triangle3d(&(cube.components[i]), &simulation_parameters); // Project
+            draw_triangle2d(renderer, &proj_tri, &simulation_parameters); // Draw
+        }
 
         // Show what was drawn
         SDL_RenderPresent(renderer);
