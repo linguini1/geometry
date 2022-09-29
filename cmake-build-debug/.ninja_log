@@ -4,3 +4,7 @@
 4	50	6861747534772250	CMakeFiles/geometry.dir/src/shapes.c.obj	6cfd7c37cd932640
 2	210	6861768152667487	CMakeFiles/geometry.dir/src/main.c.obj	2586af38a2941222
 6	222	6861747536487247	CMakeFiles/geometry.dir/src/draw_helper.c.obj	1249c4050b5abc23
+2	134	6861884303837414	CMakeFiles/geometry.dir/src/vectors.c.obj	ad5690749649bd14
+1	286	6861884417333982	CMakeFiles/geometry.dir/src/main.c.obj	2586af38a2941222
+3	248	6861884813371135	CMakeFiles/geometry.dir/src/main.c.obj	2586af38a2941222
+4	268	6861885657017988	CMakeFiles/geometry.dir/src/main.c.obj	2586af38a2941222

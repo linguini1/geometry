@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <SDL.h>
+#include <draw.h>
 
 // Window parameters
 static const int width = 500;
@@ -40,6 +40,7 @@ int main(int argc, char **argv) {
     SDL_Event event;
 
     // Initialize assets
+    Shape square = create_square(10.0f);
 
 
     while (running) {
@@ -57,6 +58,7 @@ int main(int argc, char **argv) {
 
         // Draw
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
+        draw_shape(renderer, &square);
 
         // Show what was drawn
         SDL_RenderPresent(renderer);
