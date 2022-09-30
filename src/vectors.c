@@ -43,6 +43,11 @@ Vector2D sum_vectors(const Vector2D *vector1, const Vector2D *vector2) {
     return (Vector2D) {(vector1->x + vector2->x), (vector1->y + vector2->y)};
 }
 
+void translate_vector(Vector2D *target, const Vector2D *translation) {
+    Vector2D translated = sum_vectors(target, translation);
+    *target = translated;
+}
+
 void scale(Vector2D *vector, float scale_factor) {
     vector->x *= scale_factor;
     vector->y *= scale_factor;

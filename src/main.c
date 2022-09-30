@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <draw.h>
+#include <SDL.h>
 
 // Window parameters
 static const int width = 500;
@@ -13,6 +14,9 @@ int main(int argc, char **argv) {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+
+    // Program params
+    Vector2D ORIGIN = {(float)width / 2, (float)height / 2};
 
     // Start SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -40,8 +44,8 @@ int main(int argc, char **argv) {
     SDL_Event event;
 
     // Initialize assets
-    Shape square = create_square(10.0f);
-
+    Shape square = create_square(50.0f);
+    translate_shape(&square, &ORIGIN);
 
     while (running) {
 

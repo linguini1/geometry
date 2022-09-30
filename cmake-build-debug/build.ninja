@@ -49,8 +49,22 @@ cmake_ninja_workdir = C$:/root/coding/C/geometry/cmake-build-debug/
 
 build cmake_object_order_depends_target_geometry: phony || CMakeFiles/geometry.dir
 
+build CMakeFiles/geometry.dir/src/draw.c.obj: C_COMPILER__geometry_Debug C$:/root/coding/C/geometry/src/draw.c || cmake_object_order_depends_target_geometry
+  DEP_FILE = CMakeFiles\geometry.dir\src\draw.c.obj.d
+  FLAGS = -g -std=gnu99
+  INCLUDES = -IC:/MinGW/include/SDL2/include -IC:/root/coding/C/geometry/./include
+  OBJECT_DIR = CMakeFiles\geometry.dir
+  OBJECT_FILE_DIR = CMakeFiles\geometry.dir\src
+
 build CMakeFiles/geometry.dir/src/main.c.obj: C_COMPILER__geometry_Debug C$:/root/coding/C/geometry/src/main.c || cmake_object_order_depends_target_geometry
   DEP_FILE = CMakeFiles\geometry.dir\src\main.c.obj.d
+  FLAGS = -g -std=gnu99
+  INCLUDES = -IC:/MinGW/include/SDL2/include -IC:/root/coding/C/geometry/./include
+  OBJECT_DIR = CMakeFiles\geometry.dir
+  OBJECT_FILE_DIR = CMakeFiles\geometry.dir\src
+
+build CMakeFiles/geometry.dir/src/shapes.c.obj: C_COMPILER__geometry_Debug C$:/root/coding/C/geometry/src/shapes.c || cmake_object_order_depends_target_geometry
+  DEP_FILE = CMakeFiles\geometry.dir\src\shapes.c.obj.d
   FLAGS = -g -std=gnu99
   INCLUDES = -IC:/MinGW/include/SDL2/include -IC:/root/coding/C/geometry/./include
   OBJECT_DIR = CMakeFiles\geometry.dir
@@ -71,7 +85,7 @@ build CMakeFiles/geometry.dir/src/vectors.c.obj: C_COMPILER__geometry_Debug C$:/
 #############################################
 # Link the executable geometry.exe
 
-build geometry.exe: C_EXECUTABLE_LINKER__geometry_Debug CMakeFiles/geometry.dir/src/main.c.obj CMakeFiles/geometry.dir/src/vectors.c.obj
+build geometry.exe: C_EXECUTABLE_LINKER__geometry_Debug CMakeFiles/geometry.dir/src/draw.c.obj CMakeFiles/geometry.dir/src/main.c.obj CMakeFiles/geometry.dir/src/shapes.c.obj CMakeFiles/geometry.dir/src/vectors.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lSDL2main  -lSDL2  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LC:/MinGW/include/SDL2/lib/x64

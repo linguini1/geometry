@@ -1,5 +1,4 @@
 // Contains utilities for manipulating vectors
-#include <math.h>
 
 // Types
 typedef struct Vector2D {
@@ -22,4 +21,5 @@ float magnitude(const Vector2D *vector);
 Vector2D unit_vector(const Vector2D *vector);
 float distance(const Vector2D *vector1, const Vector2D *vector2);
 Vector2D sum_vectors(const Vector2D *vector1, const Vector2D *vector2);
+void translate_vector(Vector2D *target, const Vector2D *translation);
 void scale(Vector2D *vector, float scale_factor);
