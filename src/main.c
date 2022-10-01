@@ -44,8 +44,9 @@ int main(int argc, char **argv) {
     SDL_Event event;
 
     // Initialize assets
-    Shape *square = create_square(50.0f);
-    Vector2D down = {0.0f, 1.0f};
+    Shape *circle = create_circle(5.0f, 10);
+    print_shape(circle);
+    translate_shape(circle, &ORIGIN);
 
     while (running) {
 
@@ -61,8 +62,7 @@ int main(int argc, char **argv) {
 
         // Draw
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
-        draw_shape(renderer, square);
-
+        draw_shape(renderer, circle);
         // Show what was drawn
         SDL_RenderPresent(renderer);
     }
