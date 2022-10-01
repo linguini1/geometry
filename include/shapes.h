@@ -16,4 +16,4 @@ void scale_shape(Shape *shape, float scale_factor);
 // Starters
 Shape *create_shape(int n, Vector2D *vertices);
 Shape *create_empty_shape(int n);
-Shape create_square(float side_length);
+Shape *create_square(float side_length);

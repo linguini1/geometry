@@ -37,13 +37,21 @@ Shape *create_shape(int n, Vector2D *vertices) {
 
 Shape *create_empty_shape(int n) {
 
-    Shape *shape = malloc(sizeof(Shape) + n * sizeof(Vector2D));
+    Shape *shape = (Shape*) malloc(sizeof(Shape));
     shape->n = n;
+    shape->vertices = (Vector2D*) malloc(sizeof(Vector2D));
 
     return shape;
 }
 
-Shape create_square(float side_length) {
+Shape *create_square(float side_length) {
+
+    Vector2D vertices[4] = {
+            0.0f, 0.0f,
+            0.0f, side_length,
+            side_length, side_length,
+            side_length, 0.0f
+    };
 
     Shape *square = create_empty_shape(4);
     square->vertices[0].x = 0;
@@ -55,5 +63,5 @@ Shape create_square(float side_length) {
     square->vertices[3].x = side_length;
     square->vertices[3].y = 0;
 
-    return *square;
+    return square;
 }

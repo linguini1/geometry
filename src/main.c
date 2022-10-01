@@ -4,8 +4,8 @@
 #include <SDL.h>
 
 // Window parameters
-static const int width = 500;
-static const int height = 500;
+static const int width = 1000;
+static const int height = 1000;
 static char window_name[] = "Geometry Visualizer";
 
 int main(int argc, char **argv) {
@@ -44,12 +44,11 @@ int main(int argc, char **argv) {
     SDL_Event event;
 
     // Initialize assets
-    Shape square = create_square(50.0f);
-    translate_shape(&square, &ORIGIN);
+    Shape *square = create_square(50.0f);
+    Vector2D down = {0.0f, 1.0f};
 
     while (running) {
 
-        // Process events
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 running = false;
@@ -62,7 +61,7 @@ int main(int argc, char **argv) {
 
         // Draw
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
-        draw_shape(renderer, &square);
+        draw_shape(renderer, square);
 
         // Show what was drawn
         SDL_RenderPresent(renderer);
