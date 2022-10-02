@@ -40,7 +40,7 @@ Shape *create_empty_shape(int n) {
 
     Shape *shape = (Shape*) malloc(sizeof(Shape));
     shape->n = n;
-    shape->vertices = (Vector2D*) malloc(sizeof(Vector2D));
+    shape->vertices = (Vector2D*) malloc(n * sizeof(Vector2D));
 
     return shape;
 }
@@ -70,39 +70,23 @@ Shape *create_square(float side_length) {
 Shape *create_circle(float radius, int resolution) {
 
     // Define shape
-    Shape *circle = create_empty_shape(resolution * 4);
-    printf("R=%d\n", resolution * 4);
+    Shape *circle = create_empty_shape(resolution * 2);
 
     // How much to increment x by each time
-    float step = radius / (float)resolution;
+    float step = 2 * radius / (float)resolution;
 
     // Go through Xs
-    for (int i = 0; i < circle->n / 4; i++) {
-        float x = step * (float)i;
+    for (int i = 0; i < resolution; i++) {
+        float x = -radius + step * (float)i;
         float y = sqrtf(radius * radius - x * x);
 
-        // Makes sure points are in order of drawing
-        int quad2_index = 4 * resolution - 1 - i;
-        int quad3_index = i + 2 * resolution;
-        int quad4_index = 2 * resolution - 1 - i;
-
-        printf("%d\n", i);
-
-        // Quad 1
+        // Top half
         circle->vertices[i].x = x;
         circle->vertices[i].y = y;
 
-        // Quad 4
-        circle->vertices[quad4_index].x = x;
-        circle->vertices[quad4_index].y = -y;
-
-        // Quad 3
-        circle->vertices[quad3_index].x = -x;
-        circle->vertices[quad3_index].y = -y;
-
-        // Quad 2
-        circle->vertices[quad2_index].x = -x;
-        circle->vertices[quad2_index].y = y;
+        // Bottom half
+        circle->vertices[resolution + i].x = -x;
+        circle->vertices[resolution + i].y = -y;
     }
 
     return circle;
