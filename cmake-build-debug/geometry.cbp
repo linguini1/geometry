@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/coding/C/geometry/src/draw.c">
+			<Option target="geometry"/>
+		</Unit>
 		<Unit filename="C:/coding/C/geometry/src/main.c">
 			<Option target="geometry"/>
 		</Unit>

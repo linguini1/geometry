@@ -21,3 +21,27 @@ void draw_shape(SDL_Renderer *renderer, const Shape *shape) {
         }
     }
 }
+
+Axes create_axes(const Vector2D *origin, float width, float height) {
+    return (Axes) {
+            {0, origin->y, width, origin->y},
+            {origin->x, 0, origin->x, height}
+    };
+}
+
+void draw_axes(SDL_Renderer *renderer, const Axes *axes) {
+
+    // Draw X axis
+    SDL_RenderDrawLineF(
+            renderer,
+            axes->x_axis[0].x, axes->x_axis[0].y,
+            axes->x_axis[1].x, axes->x_axis[1].y
+    );
+
+    // Draw Y axis
+    SDL_RenderDrawLineF(
+            renderer,
+            axes->y_axis[0].x, axes->y_axis[0].y,
+            axes->y_axis[1].x, axes->y_axis[1].y
+    );
+}

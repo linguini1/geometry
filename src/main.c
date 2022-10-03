@@ -4,8 +4,8 @@
 #include <SDL.h>
 
 // Window parameters
-static const int width = 1000;
-static const int height = 1000;
+static const int width = 800;
+static const int height = 800;
 static char window_name[] = "Geometry Visualizer";
 
 int main(int argc, char **argv) {
@@ -44,7 +44,9 @@ int main(int argc, char **argv) {
     SDL_Event event;
 
     // Initialize assets
-    Shape *circle = create_circle(10.0f, 250);
+    Axes axes = create_axes(&ORIGIN, (float)width, (float)height);
+
+    Shape *circle = create_circle(100.0f, 1000);
     translate_shape(circle, &ORIGIN);
 
     Shape *square = create_square(20.0f);
@@ -66,6 +68,7 @@ int main(int argc, char **argv) {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White stroke
         draw_shape(renderer, circle);
         draw_shape(renderer, square);
+        draw_axes(renderer, &axes);
 
         // Show what was drawn
         SDL_RenderPresent(renderer);

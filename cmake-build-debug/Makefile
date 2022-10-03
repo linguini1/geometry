@@ -128,6 +128,30 @@ geometry/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\geometry.dir\build.make CMakeFiles/geometry.dir/build
 .PHONY : geometry/fast
 
+src/draw.obj: src/draw.c.obj
+.PHONY : src/draw.obj
+
+# target to build an object file
+src/draw.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\geometry.dir\build.make CMakeFiles/geometry.dir/src/draw.c.obj
+.PHONY : src/draw.c.obj
+
+src/draw.i: src/draw.c.i
+.PHONY : src/draw.i
+
+# target to preprocess a source file
+src/draw.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\geometry.dir\build.make CMakeFiles/geometry.dir/src/draw.c.i
+.PHONY : src/draw.c.i
+
+src/draw.s: src/draw.c.s
+.PHONY : src/draw.s
+
+# target to generate assembly for a file
+src/draw.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\geometry.dir\build.make CMakeFiles/geometry.dir/src/draw.c.s
+.PHONY : src/draw.c.s
+
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
@@ -209,6 +233,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... geometry
+	@echo ... src/draw.obj
+	@echo ... src/draw.i
+	@echo ... src/draw.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
